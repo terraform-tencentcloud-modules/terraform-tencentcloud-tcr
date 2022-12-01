@@ -165,7 +165,7 @@ module "tcr_token" {
 
 | Name | Version |
 |------|---------|
-| <a name="provider_tencentcloud"></a> [aws](#provider\_tencentcloud) | >= 1.59.4 |
+| <a name="provider_tencentcloud"></a> [tencentcloud](#provider\_tencentcloud) | >= 1.59.4 |
 
 ## Modules
 
@@ -189,11 +189,11 @@ No modules.
 |replications|Specify List of instance Replications, premium for instance_type only|list(map(any))|`[]`|no|
 |security_policies|The list of security policies|list(map(string))|`[]`|no|
 |tags|The tags applied to this TCR instance|map(string)|`{}`|no|
-|namespace_name|Name of namespaces to be created|string|`""`|no|
+|namespace_name|Name of namespaces to be created|string|`null`|no|
 |is_public|Indicate that the namespace is public or not|bool|false|no|
-|repository_name|Name of repository to be created|string|`""`|no|
-|repo_brief_desc|Brief description of the repository|string|`""`|no|
-|repo_desc|Description of the repository|string|`""`|no|
+|repository_name|Name of repository to be created|string|`null`|no|
+|repo_brief_desc|Brief description of the repository|string|`null`|no|
+|repo_desc|Description of the repository|string|`null`|no|
 |token_desc|Description of the token|string|`""`|no|
 |enable|Indicate to enable this token or not|bool|false|no|
 |vpc_id|The VPC ID for the VPC attachment|string|`""`|no|
