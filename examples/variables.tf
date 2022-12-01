@@ -1,16 +1,22 @@
-variable "region" {
-  description = "The region for resources"
+variable "default_az" {
+  description = "The avalible zone"
   type        = string
-  default     = "na-siliconvalley"
+  default     = "ap-guangzhou-3"
 }
 
-variable "tcr_name" {
+variable "instance_id" {
+  description = "The TCR instance id"
+  type        = string
+  default     = ""
+}
+
+variable "instance_name" {
   description = "The TCR instance name"
   type        = string
   default     = "tcr-siliconvalley1-jliao"
 }
 
-variable "tcr_instance_type" {
+variable "instance_type" {
   description = "The TCR instance type"
   type        = string
   default     = "basic"
@@ -37,13 +43,43 @@ variable "security_policies" {
   ]
 }
 
-variable "tcr_tags" {
+variable "tags" {
   description = "The tags for this TCR instance"
   type        = map(string)
   default = {
     created_by = "jliao"
     bu         = "nasa"
   }
+}
+
+variable "namespace_name" {
+  description = "Name of namespaces to be created"
+  type        = string
+  default = "test-namespace-name"
+}
+
+variable "is_public" {
+  description = "Indicate that the namespace is public or not"
+  type = bool
+  default = false
+}
+
+variable "repository_name" {
+  description = "Name of repository to be created"
+  type        = string
+  default = "test-repository-name"
+}
+
+variable "repo_brief_desc" {
+  description = "Brief description of the repository"
+  type        = string
+  default = "test brief description"
+}
+
+variable "repo_desc" {
+  description = "Description of the repository"
+  type        = string
+  default = "test repository description"
 }
 
 variable "vpc_id" {
@@ -55,44 +91,4 @@ variable "subnet_id" {
   description = "The subnet ID."
   type        = string
   default     = "subnet-pq7krkow"
-}
-
-variable "namespaces" {
-  description = "The namespaces created in this TCR instance"
-  type        = list(map(any))
-  default = [
-    {
-      name      = "init-demo1"
-      is_public = false
-    },
-    {
-      name      = "init-demo2"
-      is_public = false
-    }
-  ]
-}
-
-variable "repositories" {
-  description = "The repositories created in this TCR instance"
-  type        = list(map(string))
-  default = [
-    {
-      namespace_name = "init-demo1"
-      name           = "demo_repo1"
-      brief_desc     = "Test repository"
-      description    = "This is a testing repository"
-    },
-    {
-      namespace_name = "init-demo2"
-      name           = "demo_repo2"
-      brief_desc     = "Test repository"
-      description    = "This is a testing repository"
-    },
-    {
-      namespace_name = "init-demo1"
-      name           = "demo_repo3"
-      brief_desc     = "Test repository"
-      description    = "This is a testing repository"
-    }
-  ]
 }

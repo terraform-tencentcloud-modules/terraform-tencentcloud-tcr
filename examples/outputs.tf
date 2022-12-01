@@ -1,14 +1,29 @@
-output "id" {
+output "instance_id" {
   description = "The TCR instance ID."
-  value       = module.tcr.id
+  value       = module.tcr.instance_id
 }
 
-output "user_name" {
-  description = "The TCR instance user name."
-  value       = module.tcr.user_name
+output "instance_name" {
+  description = "The TCR instance name."
+  value       = module.tcr.instance_name
 }
 
-output "token" {
-  description = "The TCR instance token."
-  value       = module.tcr.token
+output "namespace_name" {
+  description = "The TCR namespace name."
+  value       = module.tcr.namespace_name
+}
+
+output "repository_name" {
+  description = "The TCR repository name."
+  value       = module.tcr.repository_name
+}
+
+output "repository_url" {
+  description = "The TCR repository url."
+  value       = module.tcr.repository_url
+}
+
+output "vpc_access_ip" {
+  description = "IP address of the TCR vpc attachment."
+  value       = module.tcr.vpc_access_ip
 }
