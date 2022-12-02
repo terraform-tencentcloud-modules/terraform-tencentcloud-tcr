@@ -22,14 +22,14 @@ module "private_tcr" {
   create_instnace = true
   instance_type   = "Basic"
   instance_name   = "your_instance_name"
-  replications = {
+  replications = [{
     region_id = 1
     sync_tag = true
-  }
-  security_policies = {
+  }]
+  security_policies = [{
     cidr_block = "10.0.0.1/24"
     description = "your description"
-  }
+  }]
   tags = {
     Terraform = "true"
     Environment = "dev"
@@ -55,14 +55,14 @@ module "public_tcr" {
   instance_type   = "Basic"
   instance_name   = "your_instance_name"
   open_public_operation = true
-  replications = {
+  replications = [{
     region_id = 1
     sync_tag = true
-  }
-  security_policies = {
+  }]
+  security_policies = [{
     cidr_block = "10.0.0.1/24"
     description = "your description"
-  }
+  }]
   tags = {
     Terraform = "true"
     Environment = "dev"
@@ -88,14 +88,14 @@ module "tcr_vpc_attachment" {
   instance_type   = "Basic"
   instance_name   = "your_instance_name"
   open_public_operation = true
-  replications = {
+  replications = [{
     region_id = 1
     sync_tag = true
-  }
-  security_policies = {
+  }]
+  security_policies = [{
     cidr_block = "10.0.0.1/24"
     description = "your description"
-  }
+  }]
   tags = {
     Terraform = "true"
     Environment = "dev"
@@ -124,14 +124,14 @@ module "tcr_token" {
   create_instnace = true
   instance_type   = "Basic"
   instance_name   = "your_instance_name"
-  replications = {
+  replications = [{
     region_id = 1
     sync_tag = true
-  }
-  security_policies = {
+  }]
+  security_policies = [{
     cidr_block = "10.0.0.1/24"
     description = "your description"
-  }
+  }]
   tags = {
     Terraform = "true"
     Environment = "dev"
