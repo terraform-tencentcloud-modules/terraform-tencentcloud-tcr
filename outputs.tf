@@ -1,30 +1,34 @@
-/**
- * Copyright 2020 Tencent Cloud, LLC
- *
- * Licensed under the Mozilla Public License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.mozilla.org/en-US/MPL/2.0/
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-output "id" {
+output "instance_id" {
   description = "The TCR instance ID."
-  value       = tencentcloud_tcr_instance.tcr_instance.id
+  value       = concat(tencentcloud_tcr_instance.tcr_instance.*.id, [""])[0]
 }
 
-output "user_name" {
-  description = "The TCR instance user name."
-  value       = tencentcloud_tcr_token.tcr_token.user_name
+output "instance_name" {
+  description = "The TCR instance name."
+  value       = concat(tencentcloud_tcr_instance.tcr_instance.*.name, [""])[0]
 }
 
-output "token" {
-  description = "The TCR instance token."
-  value       = tencentcloud_tcr_token.tcr_token.token
+output "namespace_name" {
+  description = "The TCR namespace name."
+  value       = concat(tencentcloud_tcr_namespace.tcr_namespace.*.name, [""])[0]
+}
+
+output "repository_name" {
+  description = "The TCR repository name."
+  value       = concat(tencentcloud_tcr_repository.tcr_repository.*.id, [""])[0]
+}
+
+output "repository_url" {
+  description = "The TCR repository url."
+  value       = concat(tencentcloud_tcr_repository.tcr_repository.*.url, [""])[0]
+}
+
+output "token_id" {
+  description = "The TCR token id."
+  value       = concat(tencentcloud_tcr_token.tcr_token.*.token_id, [""])[0]
+}
+
+output "vpc_access_ip" {
+  description = "IP address of the TCR vpc attachment."
+  value       = concat(tencentcloud_tcr_vpc_attachment.tcr_vpc_attachment.*.access_ip, [""])[0]
 }
