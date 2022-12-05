@@ -19,7 +19,7 @@ These types of resources are supported:
 module "private_tcr" {
   source          = "terraform-tencentcloud-modules/tcr/tencentcloud"
 
-  create_instnace = true
+  create_instance = true
   instance_type   = "Basic"
   instance_name   = "your_instance_name"
   replications = [{
